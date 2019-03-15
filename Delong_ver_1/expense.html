@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Expense Report 2018</title>
+    <link type="text/css" rel="stylesheet" href="styles/expense.css" />
+    <script src="scripts/travelExp.js"></script>
+
+    <!--
+       Assignment 2 - version 1
+       Expense Report Form
+       Your Name:changwei lin
+       Date:06/11/2018
+
+       Filename: expense.html
+       Supporting files: back.jpg, exp.css, travelExp.js., links.jpg, logo.jpg
+    -->
+</head>
+
+<body>
+    <div id="links"><img src="images/links.jpg" alt="DeLong Enterprises" title="DeLong Enterprises" /></div>
+    <div id="main">
+        <p><img src="images/logo.jpg" alt="DeLong Enterprises" title="DeLong Enterprises" /></p>
+        <form name="expform" id="expform" method="post" action="done.html" onsubmit="return validateForm()">
+            <!--call validateForm this function-->
+
+            <table>
+                <tr>
+                    <th colspan="5" id="reporttitle">Travel Expense Report</th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="lastname" tabindex="1">Name Last</label>
+                        <span>*</span>
+                    </th>
+                    <th>
+                        <label for="firstname" tabindex="2">First Last</label>
+                        <span>*</span>
+                    </th>
+                    <th>
+                        <label for="initial" tabindex="3">Initial</label>
+                        <span>*</span>
+                    </th>
+                    <th>
+                        <label for="account" tabindex="4">Account</label>
+                        <span>*</span>
+                    </th>
+
+                    <th>
+                        <input type="text" name="account" id="account" tabindex="8" />
+                    </th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="lastname" id="lastname" tabindex="5" /></td>
+                    <td><input type="text" name="firstname" id="firstname" tabindex="6" /></td>
+                    <td><input type="text" name="initial" id="initial" tabindex="7" /></td>
+                    <th>
+                        <label for="department" tabindex="9">Department</label>
+                        <span>*</span>
+                    </th>
+                    <td><input type="text" name="department" id="department" tabindex="10" /></td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="ssn" tabindex="11">Social Security Number</label>
+                        <span>*</span>
+                    </th>
+                    <td colspan="2"><input type="text" name="ssn" id="ssn" tabindex="12" /></td>
+                    <th>
+                        <label for="project" tabindex="13">Project</label>
+                        <span>*</span>
+
+                    </th>
+                    <td><input type="text" name="project" id="project" tabindex="14" /></td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <th>Send Check to:<span>*</span></th>
+                    <th>Trip Summary<span>*</span></th>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="address" name="address"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="summary" name="summary"></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <table id="traveltable">
+                <tr>
+                    <th id="datehead">Travel Date<span>*</span></th>
+                    <th id="travelexphead">Travel Cost</th>
+                    <th id="traveltypehead">Type</th>
+                    <th id="lodgeexphead">Lodging</th>
+                    <th id="mealexphead">Meals</th>
+                    <th id="subhead">Total</th>
+                </tr>
+                <tr>
+                    <td><input type="date" name="date1" id="date1" /></td>
+                    <td><input type="number" name="travel1" id="travel1" value="0.00" onblur="update(this)" /></td>
+                    <td>
+                        <select name="traveltype1" id="traveltype1">
+                            <option>air</option>
+                            <option>auto</option>
+                            <option>taxi</option>
+                            <option>train</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="lodge1" id="lodge1" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="number" name="meal1" id="meal1" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="text" name="sub1" id="sub1" value="0.00" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td><input type="date" name="date2" id="date2" /></td>
+                    <td><input type="number" name="travel2" id="travel2" value="0.00" onblur="update(this)"/></td>
+                    <td>
+                        <select name="traveltype2" id="traveltype2">
+                            <option>air</option>
+                            <option>auto</option>
+                            <option>taxi</option>
+                            <option>train</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="lodge2" id="lodge2" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="number" name="meal2" id="meal2" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="text" name="sub2" id="sub2" value="0.00" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td><input type="date" name="date3" id="date3" /></td>
+                    <td><input type="number" name="travel3" id="travel3" value="0.00" onblur="update(this)"/></td>
+                    <td>
+                        <select name="traveltype3" id="traveltype3">
+                            <option>air</option>
+                            <option>auto</option>
+                            <option>taxi</option>
+                            <option>train</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="lodge3" id="lodge3" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="number" name="meal3" id="meal3" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="text" name="sub3" id="sub3" value="0.00" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td><input type="date" name="date4" id="date4" /></td>
+                    <td><input type="number" name="travel4" id="travel4" value="0.00" onblur="update(this)"/></td>
+                    <td>
+                        <select name="traveltype4" id="traveltype4">
+                            <option>air</option>
+                            <option>auto</option>
+                            <option>taxi</option>
+                            <option>train</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="lodge4" id="lodge4" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="number" name="meal4" id="meal4" value="0.00" onblur="update(this)"/></td>
+                    <td><input type="text" name="sub4" id="sub4" value="0.00" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <th colspan="5" id="totalhead">TOTAL</th>
+                    <td><input type="text" id="total" name="total" readonly="readonly" value="0.00" /></td>
+                </tr>
+                <tr>
+                    <td colspan="6"><span>* - Indicates a required field</span></td>
+                </tr>
+            </table>
+
+            <p id="psub">
+                <input type="submit" name="submit" id="submit" value="Submit Report" />
+            </p>
+
+        </form>
+    </div>
+</body>
+</html>
